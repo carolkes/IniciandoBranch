@@ -46,9 +46,9 @@ namespace InterfaceNomes
                         Console.WriteLine("Opção Inválida.");
                         break;
                 }
+                Console.Clear();
                 ImprimeMenu();
                 menuEscolhido = int.Parse(Console.ReadLine());
-                Console.Clear();
             }
         }
         private static void ListarNome()
