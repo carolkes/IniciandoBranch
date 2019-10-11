@@ -17,7 +17,6 @@ namespace InfomacoesFlores.Controller
         {
             return contextDB.Flores;
         }
-
         /// <summary>
         /// inserindo as flores
         /// </summary>
@@ -25,11 +24,19 @@ namespace InfomacoesFlores.Controller
         public void InserirFlor(Flor item)
         {
             contextDB.Flores.Add(item);
-
-            
-          
             contextDB.SaveChanges();
         }
+        public IQueryable<Flor> OrdenarFlor()
+        {
+            return contextDB.Flores.OrderByDescending(x => x.Quantidade);
+        }
+        public int SomaFlor()
+        {
+            return contextDB.Flores.Sum(x => x.Quantidade);
+        }
+       
+        
+
     }
     
 }

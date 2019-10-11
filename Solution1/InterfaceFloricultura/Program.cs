@@ -23,6 +23,7 @@ namespace InterfaceFloricultura
             Console.WriteLine("0 - Sair do Sistema");
             Console.WriteLine("1 - Cadastrar Flor");
             Console.WriteLine("2 - Listar Flores");
+            Console.WriteLine("3 - Relatório Flores");
         }
         public static void MenuSistema()
         {
@@ -41,6 +42,9 @@ namespace InterfaceFloricultura
                         break;
                     case 2:
                         ListarFlor();
+                        break;
+                    case 3:
+                        OrdenaFlor();
                         break;
                     default:
                         Console.WriteLine("Opção Inválida");
@@ -76,9 +80,23 @@ namespace InterfaceFloricultura
 
             flores.GetFlores().ToList<Flor>()
                 .ForEach(x => Console.WriteLine
-                ($"Id: {x.Id} Flor: {x.Nome} Quantidade: {x.Quantidade} unidades"));
+                ($"Id: {x.Id} -- Flor: {x.Nome} -- Quantidade: {x.Quantidade} unidades"));
 
             Console.ReadKey();
         }
+        public static void OrdenaFlor()
+        {
+            Console.WriteLine("**Lista De Flores Ordenada**");
+
+            flores.OrdenarFlor().ToList<Flor>().
+                ForEach(x =>
+                Console.WriteLine($"Id: {x.Id} -- Flor: {x.Nome} -- Quantidade: {x.Quantidade} Mudas"));
+
+            Console.WriteLine(
+                $"Total Quantidade de Flores: {flores.SomaFlor()}");
+  
+            Console.ReadKey();
+        }
+        
     }
 }
