@@ -51,6 +51,9 @@ namespace InterfaceBicicleta
                     case 4:
                         ListarBicicleta();
                         break;
+                    case 5:
+                        OrdenaBicicleta();
+                        break;
                     default:
                         Console.WriteLine("Opção Inválida!");
                         break;
@@ -166,13 +169,10 @@ namespace InterfaceBicicleta
                 .ForEach(x => 
                 Console.WriteLine($"Id: {x.Id} - Modelo: {x.Modelo} - Marca: {x.Marca} - Valor: {x.Valor}"));
 
-            Console.ReadKey();
-        }
-        public static void SomaValor()
-        {
             Console.WriteLine($"Valor Total:{bicicletas.SomaValor()}");
 
             Console.ReadKey();
         }
+
     }
 }
